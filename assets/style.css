@@ -1,0 +1,96 @@
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@font-face 
+{
+font-family: 'Title';
+src: url('../assets/font/VTCBayard-Rustin.woff2') format('woff2'),
+url('../assets/font/VTCBayard-Rustin.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+font-display: swap;
+}
+
+:root
+{
+    --nav: 20px;
+    --body-copy: 15px;
+}
+
+body, html {
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    background-color: #e8d9fa;
+}
+
+/*Navigation - Desktop*/
+nav {
+    font-family: 'Title';
+    text-transform: uppercase;
+    font-size: var(--nav);
+    line-height: 2;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #e8d9fa;;
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+/*Animation*/
+.circle-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.circle1 { background-color: #E3CCFF; width: 100vw; height: 100vw; }
+.circle2 { background-color: #CBA0FF; width: 90vw; height: 90vw; }
+.circle3 { background-color: #B87DFF; width: 75vw; height: 75vw; }
+.circle4 { background-color: #FF795D; width: 60vw; height: 60vw; }
+.circle5 { background-color: #7400FF; width: 45vw; height: 45vw; }
+.circle6 { background-color: #4B00A5; width: 30vw; height: 30vw; }
+.circle7 { background-color: #E3CCFF; width: 20vw; height: 20vw; }
+
+.logo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+}
