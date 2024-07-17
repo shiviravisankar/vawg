@@ -77,6 +77,7 @@ border: 1px solid #d5d5d5;
 .content-wrapper 
 {
 display: flex;
+position: relative;
 gap: 50px;
 margin-top: 5vh;
 margin-bottom: 7vh;
@@ -92,6 +93,9 @@ margin-bottom: 2%;
 width: 30%;
 background-color: #ffffff;
 box-sizing: border-box;
+position: sticky;
+top: 20px;
+align-self: flex-start;
 }
 
 .menu-item 
@@ -218,56 +222,22 @@ At both national and local level, structural inequalities mean that &#39;by and 
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-const links = document.querySelectorAll('#sidebar a');
-const pages = document.querySelectorAll('.page');
-const menuItems = document.querySelectorAll('.menu-item');
-const sidebar = document.getElementById('sidebar');
-const text2 = document.getElementById('text2');
-const contentWrapper = document.querySelector('.content-wrapper');
+    const links = document.querySelectorAll('#sidebar a');
+    const pages = document.querySelectorAll('.page');
+    const menuItems = document.querySelectorAll('.menu-item');
 
-links.forEach(link => {
-link.addEventListener('click', function(e) {
-e.preventDefault();
-const pageId = this.getAttribute('data-page');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
 
-pages.forEach(page => page.classList.remove('active'));
-menuItems.forEach(item => item.classList.remove('active'));
+            pages.forEach(page => page.classList.remove('active'));
+            menuItems.forEach(item => item.classList.remove('active'));
 
-document.getElementById(pageId).classList.add('active');
-this.parentElement.classList.add('active');
-});
-});
-
-let sidebarOriginalTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-let sidebarHeight = sidebar.offsetHeight;
-let contentWrapperHeight = contentWrapper.offsetHeight;
-
-function fixSidebar() {
-let scrollPosition = window.pageYOffset;
-let text2Bottom = text2.getBoundingClientRect().bottom + window.pageYOffset;
-
-if (scrollPosition >= text2Bottom - sidebarOriginalTop) {
-sidebar.style.position = 'fixed';
-sidebar.style.top = `${sidebarOriginalTop}px`;
-
-if (scrollPosition + sidebarHeight >= sidebarOriginalTop + contentWrapperHeight) {
-let newTop = contentWrapperHeight - sidebarHeight;
-sidebar.style.top = `${newTop}px`;
-}
-} else {
-sidebar.style.position = 'static';
-}
-}
-
-window.addEventListener('scroll', fixSidebar);
-window.addEventListener('resize', () => {
-sidebarOriginalTop = sidebar.getBoundingClientRect().top + window.pageYOffset;
-sidebarHeight = sidebar.offsetHeight;
-contentWrapperHeight = contentWrapper.offsetHeight;
-fixSidebar();
-});
-
-fixSidebar();
+            document.getElementById(pageId).classList.add('active');
+            this.parentElement.classList.add('active');
+        });
+    });
 });
 </script>
 </body>
