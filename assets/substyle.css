@@ -21,12 +21,13 @@ margin-top: 7vh;
 text-transform: uppercase;
 font-weight: 500;
 display: flex;
+justify-content: space-between;
 margin-bottom: 2vh;
 }
 
-.header p
+img
 {
-margin-right: 20%;
+    border-radius: 5px;
 }
 
 h1
