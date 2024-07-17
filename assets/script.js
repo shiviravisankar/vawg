@@ -7,20 +7,25 @@ circle.style.animation = `pulse 4s infinite ${index * 0.5}s`;
 });
 });
 
+//overlay
 document.addEventListener('DOMContentLoaded', () => {
 const overlay = document.getElementById('overlay');
 const closeButton = document.getElementById('closeOverlay');
-const overlayFrame = document.getElementById('overlayFrame');
+const overlayContentContainer = document.getElementById('overlayContentContainer');
 const navLinks = document.querySelectorAll('nav a');
 
 const openOverlay = (url) => {
-overlayFrame.src = url;
+fetch(url)
+.then(response => response.text())
+.then(html => {
+overlayContentContainer.innerHTML = html;
 overlay.style.display = 'block';
+});
 };
 
 const closeOverlay = () => {
 overlay.style.display = 'none';
-overlayFrame.src = '';
+overlayContentContainer.innerHTML = '';
 };
 
 navLinks.forEach(link => {
