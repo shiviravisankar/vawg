@@ -8,237 +8,233 @@
 <link href="assets/substyle.css" rel="stylesheet">
 <title>Learning & Resources</title>
 <style>
-#sidebar 
-{
-width: 15%;
-background-color: #FFFFFF;
-position: fixed;
-margin-top: 12%;
+.content-wrapper {
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-#sidebar h2 
-{
-margin-bottom: 20px;
+#sidebar {
+    width: 15%;
+    background-color: #FFFFFF;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
 }
 
-h3
-{
+#sidebar h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
     font-weight: 600;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
 
-.topic1, .topic2, .topic3
-{
+.topic1, .topic2, .topic3 {
     margin-bottom: 4vh;
 }
 
-#page2 p, #page3 p
-{
+#page2 p, #page3 p {
     margin-bottom: 15px;
 }
 
-.buttons
-{
-margin-top: 5vh;
-margin-bottom: 5vh;
-display: flex;
-justify-content: space-evenly;
-letter-spacing: 1px;
+.buttons {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: space-evenly;
+    letter-spacing: 1px;
 }
 
-.button-primary, .button-secondary 
-{
-font-family: 'Title';
-font-size: var(--nav);
-text-transform: uppercase;
-display: inline-block;
-padding: 20px 40px;
-text-decoration: none;
-text-align: center;
-border-radius: 50px;
-transition: background-color 0.3s;
+.button-primary, .button-secondary {
+    font-family: 'Title';
+    font-size: var(--nav);
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 20px 40px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px;
+    transition: background-color 0.3s;
 }
 
-.button-primary 
-{
-background-color: #030303;
-color: white;
+.button-primary {
+    background-color: #030303;
+    color: white;
 }
 
-.button-primary:hover 
-{
-background-color: white;
-color: #030303;
-border: 1px solid black;
+.button-primary:hover {
+    background-color: white;
+    color: #030303;
+    border: 1px solid black;
 }
 
-.button-secondary 
-{
-background-color: white;
-color: #030303;
-border: 1px solid #030303;
+.button-secondary {
+    background-color: white;
+    color: #030303;
+    border: 1px solid #030303;
 }
 
-.button-secondary:hover 
-{
-border: 1px solid #d5d5d5;
+.button-secondary:hover {
+    border: 1px solid #d5d5d5;
 }
 
-.image2
-{
+.image2 {
     margin-bottom: 4vh;
 }
 
-.menu-item 
-{
-margin-bottom: 15px;
+.menu-item {
+    margin-bottom: 15px;
 }
 
-.menu-item.active a 
-{
-color: #FF5733;
-border-bottom: 2px solid #FF5733;
+.menu-item.active a {
+    color: #FF5733;
+    border-bottom: 2px solid #FF5733;
 }
 
-#content 
-{
-margin-left: 25%;
-width: 60%;
-margin-top: 5%;
-margin-bottom: 5%;
+#content {
+    width: 75%;
+    padding-left: 5%;
 }
 
-.page 
-{
-display: none;
+.page {
+    display: none;
 }
 
-.page.active 
-{
-display: block;
+.page.active {
+    display: block;
 }
 </style>
 </head>
 <body>
 <div class="all">
-<div class="header">
-<p>Learning & Resources</p>
-<p>ending racism in the violence against women & girls movement</p>
-</div>
-<div class="vline"></div>
-<nav id="sidebar">
-<div class="menu-item active">
-<a href="#" data-page="page1">Definitions</a>
-</div>
-<div class="menu-item">
-<a href="#" data-page="page2">Call to Action</a>
-</div>
-<div class="menu-item">
-<a href="#" data-page="page3">Feministo</a>
-</div>
-</nav>
+    <div class="header">
+        <p>Learning & Resources</p>
+        <p>ending racism in the violence against women & girls movement</p>
+    </div>
+    <div class="vline"></div>
+    <div class="content-wrapper">
+        <nav id="sidebar">
+            <div class="menu-item active">
+                <a href="#" data-page="page1">Definitions</a>
+            </div>
+            <div class="menu-item">
+                <a href="#" data-page="page2">Call to Action</a>
+            </div>
+            <div class="menu-item">
+                <a href="#" data-page="page3">Feministo</a>
+            </div>
+        </nav>
 
-<main id="content">
-<div id="page1" class="page active">
-<div class="topic1">
-<h3>Black and Minoritised</h3>
-<p>
-We use the term Black and minoritised, rather than Black and minority ethnic or BME, to make clear that Black and minoritised women and girls represent a global majority subjected to minoritisation through structural inequality. The term 'Black' is used in the political sense (so it is a politicised term), to encompass all women whose herstorys originate from Africa, Asia, the Caribbean and Latin America, including the indigenous peoples of Australasia, the Americas and the islands of the Atlantic, Indian and Pacific Oceans. The term &#39;minoritised&#39; serves to recognise that individuals have been actively minoritised through social processes of power and domination, and captures the importance of power when talking about race. Used together, Black and minoritised identifies the struggle against racism of a global majority population.
-</p>
-</div>
+        <main id="content">
+            <div id="page1" class="page active">
+                <div class="topic1">
+                    <h3>Black and Minoritised</h3>
+                    <p>
+                    We use the term Black and minoritised, rather than Black and minority ethnic or BME, to make clear that Black and minoritised women and girls represent a global majority subjected to minoritisation through structural inequality. The term 'Black' is used in the political sense (so it is a politicised term), to encompass all women whose herstorys originate from Africa, Asia, the Caribbean and Latin America, including the indigenous peoples of Australasia, the Americas and the islands of the Atlantic, Indian and Pacific Oceans. The term 'minoritised' serves to recognise that individuals have been actively minoritised through social processes of power and domination, and captures the importance of power when talking about race. Used together, Black and minoritised identifies the struggle against racism of a global majority population.
+                    </p>
+                </div>
 
-<div class="topic2">
-<h3>&#39;By and for&#39; Black and minoritised women&#39;s services</h3>
-<p>
-&#39;By and for&#39; services are those that are led, designed, and delivered by and for Black and minoritised women and girls, with Black and minoritised women making up the staff, leadership and governance of the organisation. 
-</p>
-</div>
+                <div class="topic2">
+                    <h3>'By and for' Black and minoritised women's services</h3>
+                    <p>
+                    'By and for' services are those that are led, designed, and delivered by and for Black and minoritised women and girls, with Black and minoritised women making up the staff, leadership and governance of the organisation. 
+                    </p>
+                </div>
 
-<div class="topic3">
-<h3>White-led services</h3>
-<p>
-The term white-led to refer to women&#39;s VAWG services which aren&#39;t led by Black and minoritised women.
-</p>
-</div>
+                <div class="topic3">
+                    <h3>White-led services</h3>
+                    <p>
+                    The term white-led to refer to women's VAWG services which aren't led by Black and minoritised women.
+                    </p>
+                </div>
 
-<div class="topic4">
-<h3>Intersectionality</h3>
-<p>
-Intersectionality provides a framework for conceptualising, articulating and responding to the
-ways that differently positioned women and girls are subjected to oppression.
-Intersectionality recognises that women&#39;s and girls&#39; identities and social positions
-are uniquely shaped by a range of factors, including race, ethnicity, sexuality, gender identity,
-disability, age, class, immigration status, caste, nationality, indigeneity, and faith. Intersectionality provides a way to conceptualise and articulate the ways that oppressions converge, to subjugate, suppress and silence whole groups of women.     
-</p>
-<p>
-“Women and girls are not all the same i.e. linked by biology and at the effect of a single
-patriarchy. Many of us are required to navigate other systems of inequality based on
-phenomenon such as &#39;race&#39;, class, disability and sexuality; and this has an effect not only on
-how we experience and understand violence, but also how and where we access support and
-Justice.”
-</p>
-</div>
-</div>
-<div id="page2" class="page">
-<div class="image2">
-<img src="assets/image/cta.png" alt="">
-</div>
-<p>
-In 2020 the Anti-Racism Working Group published a Call to Action for organisations that work in and with the End Violence Against Women and Girls (VAWG) sector in England and Wales to unite with renewed commitment and mutual accountability to end racism within our movement.
-</p>
-<p>
-The call to action invites all organisations that operate in the VAWG sector to join forces with us and commit to a clear set of anti-racist standards. It set out a number of values, pledges and actions which the Anti-Racism Working Group called on organisations in the VAWG sector to commit to in order to kick-start the work that is needed to end racism in the sector.
-</p>
-<div class="buttons">
-<a href="https://www.endingracisminvawg.org/ARWG_Call_to_Action.pdf" class="button-primary">Download the Call to Action</a>
-</div>
-</div>
-<div id="page3" class="page">
-<div class="image2">
-<img src="assets/image/feministo.png" alt="">
-</div>
-<p>
-    The Feministo was authored, and signed by over 50, Black and minoritised women working to end violence against women and girls. It was published in 2021.
-</p>
-<p>
-    The Feministo sets out the signatories support for the VAWG Sector&#39;s Anti-Racism Charter, stating that it signifies and represents a call to action to end racism in the VAWG sector. By endorsing the Anti-Racism Charter, the signatories believe that we are tackling the harm and oppression of racism in our sector and that the priority issues and commitments identified in the Charter are needed to ensure the meaningful engagement with anti-racism action. 
-</p>
-<p>
-    The Feministo states that “by implementing the actions of the Anti-Racism Charter that we can support the sector to move from performative allyship following the murder of George Floyd to transformative change and action. We believe that transformative change can only emerge when we name the racialised oppression that we have been subjected to and call out the ways that it manifests itself in our sector.”
-</p>
-<p>
-    The Feministo sets out the importance of the Charter in a UK context, recognising that the brutal murder of George Floyd galvanised a sector-wide response to seek justice and end racism, but racism is not something that only occurs elsewhere but must be recognised and acted upon in the UK context.
-</p>
-<div class="buttons">
-<a href="https://static1.squarespace.com/static/5f7d9f4addc689717e6ea200/t/604bbf7b34174c51b5b26a2c/1615576956235/Anti-Racism+Feministo.pdf" class="button-primary">Download the feministo</a>
-</div>
-</div>
-</main>
-<div class="vline"></div>
-<div class="footer">
-<p>Learning & Resources</p>
-<p>endingracisminvawg.com</p>
-</div>
+                <div class="topic4">
+                    <h3>Intersectionality</h3>
+                    <p>
+                    Intersectionality provides a framework for conceptualising, articulating and responding to the
+                    ways that differently positioned women and girls are subjected to oppression.
+                    Intersectionality recognises that women's and girls' identities and social positions
+                    are uniquely shaped by a range of factors, including race, ethnicity, sexuality, gender identity,
+                    disability, age, class, immigration status, caste, nationality, indigeneity, and faith. Intersectionality provides a way to conceptualise and articulate the ways that oppressions converge, to subjugate, suppress and silence whole groups of women.     
+                    </p>
+                    <p>
+                    "Women and girls are not all the same i.e. linked by biology and at the effect of a single
+                    patriarchy. Many of us are required to navigate other systems of inequality based on
+                    phenomenon such as 'race', class, disability and sexuality; and this has an effect not only on
+                    how we experience and understand violence, but also how and where we access support and
+                    Justice."
+                    </p>
+                </div>
+            </div>
+            <div id="page2" class="page">
+                <div class="image2">
+                    <img src="assets/image/cta.png" alt="">
+                </div>
+                <p>
+                In 2020 the Anti-Racism Working Group published a Call to Action for organisations that work in and with the End Violence Against Women and Girls (VAWG) sector in England and Wales to unite with renewed commitment and mutual accountability to end racism within our movement.
+                </p>
+                <p>
+                The call to action invites all organisations that operate in the VAWG sector to join forces with us and commit to a clear set of anti-racist standards. It set out a number of values, pledges and actions which the Anti-Racism Working Group called on organisations in the VAWG sector to commit to in order to kick-start the work that is needed to end racism in the sector.
+                </p>
+                <div class="buttons">
+                    <a href="https://www.endingracisminvawg.org/ARWG_Call_to_Action.pdf" class="button-primary">Download the Call to Action</a>
+                </div>
+            </div>
+            <div id="page3" class="page">
+                <div class="image2">
+                    <img src="assets/image/feministo.png" alt="">
+                </div>
+                <p>
+                    The Feministo was authored, and signed by over 50, Black and minoritised women working to end violence against women and girls. It was published in 2021.
+                </p>
+                <p>
+                    The Feministo sets out the signatories support for the VAWG Sector's Anti-Racism Charter, stating that it signifies and represents a call to action to end racism in the VAWG sector. By endorsing the Anti-Racism Charter, the signatories believe that we are tackling the harm and oppression of racism in our sector and that the priority issues and commitments identified in the Charter are needed to ensure the meaningful engagement with anti-racism action. 
+                </p>
+                <p>
+                    The Feministo states that "by implementing the actions of the Anti-Racism Charter that we can support the sector to move from performative allyship following the murder of George Floyd to transformative change and action. We believe that transformative change can only emerge when we name the racialised oppression that we have been subjected to and call out the ways that it manifests itself in our sector."
+                </p>
+                <p>
+                    The Feministo sets out the importance of the Charter in a UK context, recognising that the brutal murder of George Floyd galvanised a sector-wide response to seek justice and end racism, but racism is not something that only occurs elsewhere but must be recognised and acted upon in the UK context.
+                </p>
+                <div class="buttons">
+                    <a href="https://static1.squarespace.com/static/5f7d9f4addc689717e6ea200/t/604bbf7b34174c51b5b26a2c/1615576956235/Anti-Racism+Feministo.pdf" class="button-primary">Download the feministo</a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="vline"></div>
+    <div class="footer">
+        <p>Learning & Resources</p>
+        <p>endingracisminvawg.com</p>
+    </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-const links = document.querySelectorAll('#sidebar a');
-const pages = document.querySelectorAll('.page');
+    const links = document.querySelectorAll('#sidebar a');
+    const pages = document.querySelectorAll('.page');
 
-links.forEach(link => {
-link.addEventListener('click', function(e) {
-e.preventDefault();
-const pageId = this.getAttribute('data-page');
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pageId = this.getAttribute('data-page');
 
-pages.forEach(page => page.classList.remove('active'));
-document.getElementById(pageId).classList.add('active');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
 
-links.forEach(l => l.parentElement.classList.remove('active'));
-this.parentElement.classList.add('active');
-});
-});
+            links.forEach(l => l.parentElement.classList.remove('active'));
+            this.parentElement.classList.add('active');
+
+            // Smooth scroll to the top of the content area
+            document.querySelector('#content').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
 });
 </script>
 </body>
