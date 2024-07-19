@@ -1,5 +1,5 @@
 /*fonts*/
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
 @font-face 
 {
@@ -14,17 +14,17 @@ font-display: swap;
 :root
 {
 --nav: 20px;
---body-copy: 14px;
+--body-copy: 15.5px;
 }
 
 body, html 
 {
-font-family: 'JetBrains Mono', monospace;
+font-family: 'Inconsolata', monospace;
 overflow: hidden;
 background-color: #e8d9fa;
 font-size: var(--body-copy);
 line-height: 1.2;
-font-weight: 200;
+font-weight: 300;
 }
 
 /*Navigation - Desktop*/

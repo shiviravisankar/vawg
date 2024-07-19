@@ -19,7 +19,7 @@ margin-top: 7vh;
 .header
 {
 text-transform: uppercase;
-font-weight: 500;
+font-weight: 600;
 display: flex;
 justify-content: space-between;
 margin-bottom: 2vh;
@@ -98,6 +98,6 @@ display: flex;
 justify-content: space-between;
 margin-top: 2vh;
 text-transform: uppercase;
-font-weight: 500;
+font-weight: 600;
 margin-bottom: 7vh;
 }
