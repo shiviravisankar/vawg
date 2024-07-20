@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const links = overlayContentContainer.querySelectorAll('#sidebar a');
         const pages = overlayContentContainer.querySelectorAll('.page');
         const menuItems = overlayContentContainer.querySelectorAll('.menu-item');
+        const contentArea = overlayContentContainer.querySelector('#content');
 
         links.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -69,9 +70,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 overlayContentContainer.querySelector(`#${pageId}`).classList.add('active');
                 this.parentElement.classList.add('active');
 
-                // Scroll to the top of the content area
-                overlayContentContainer.querySelector('#content').scrollIntoView({behavior: 'smooth'});
+                // Scroll only the content area, not the entire overlay
+                contentArea.scrollTop = 0;
             });
+        });
+    }
+
+    // Banner text animation
+    const bannerContent = document.querySelector('.banner-content');
+    if (bannerContent) {
+        bannerContent.addEventListener('animationiteration', () => {
+            bannerContent.style.animation = 'none';
+            bannerContent.offsetHeight; /* trigger reflow */
+            bannerContent.style.animation = null;
         });
     }
 });
