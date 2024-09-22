@@ -4,372 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/reset.css" rel="stylesheet">
+<link href="assets/style.css" rel="stylesheet">
+<script defer src="assets/script.js"></script>
 <title>VAWG</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
-@font-face {
-    font-family: 'Title';
-    src: url('../assets/font/VTCBayard-Rustin.woff2') format('woff2'),
-         url('../assets/font/VTCBayard-Rustin.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-:root {
-    --nav-mobile: 16px;
-    --nav-desktop: 20px;
-    --body-copy: 14px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body, html {
-    height: 100%;
-    font-family: 'Inconsolata', monospace;
-    background-color: #E3CCFF;
-    font-size: var(--body-copy);
-    line-height: 1.4;
-    font-weight: 400;
-    overflow-x: hidden;
-}
-
-.container {
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-}
-
-header {
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.circle-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    animation: dissolve 5s infinite linear;
-    opacity: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.circle1 { 
-    width: 100px; 
-    height: 100px; 
-    z-index: 7;
-    animation: none; 
-    opacity: 1; 
-}
-.circle2 { background-color: #E3CCFF; width: 150px; height: 150px; animation-delay: 0.2s; z-index: 6; }
-.circle3 { background-color: #4B00A5; width: 250px; height: 250px; animation-delay: 0.6s; z-index: 5; }
-.circle4 { background-color: #7400FF; width: 350px; height: 350px; animation-delay: 1s; z-index: 4; }
-.circle5 { background-color: #FF795D; width: 450px; height: 450px; animation-delay: 1.4s; z-index: 3; }
-.circle6 { background-color: #B87DFF; width: 550px; height: 550px; animation-delay: 1.8s; z-index: 2; }
-.circle7 { background-color: #CBA0FF; width: 650px; height: 650px; animation-delay: 2.2s; z-index: 1; }
-
-@keyframes dissolve {
-    0%, 100% { opacity: 100%; }
-    25% { opacity: 65%; }
-    50% { opacity: 30%; }
-    75% { opacity: 65%; }
-}
-
-.mobile-nav {
-    height: 40vh;
-    overflow-y: auto;
-}
-
-.mobile-nav ul {
-    list-style-type: none;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.mobile-nav li {
-    flex-grow: 1;
-    display: flex;
-}
-
-.mobile-nav a {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    width: 100%;
-    padding: 10px 30px;
-    color: #000000;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Title', sans-serif;
-    text-transform: uppercase;
-    font-size: var(--nav-mobile);
-}
-
-.mobile-nav li:nth-child(1) a { background-color: #E3CCFF; }
-.mobile-nav li:nth-child(2) a { background-color: #CBA0FF; }
-.mobile-nav li:nth-child(3) a { background-color: #FF795D; }
-.mobile-nav li:nth-child(4) a { background-color: #B87DFF; }
-
-.desktop-nav {
-    display: none;
-}
-
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(227, 204, 255, 0.5);
-    z-index: 1000;
-    overflow-y: auto;
-}
-
-.overlay-content {
-    width: 95%;
-    margin: 2% auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    min-height: 96vh;
-    box-sizing: border-box;
-    position: relative;
-    padding: 20px;
-}
-
-.overlay-header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    z-index: 1001;
-}
-
-#closeOverlay {
-    font-size: 36px;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    color: black;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-}
-
-@media screen and (min-width: 768px) {
-    .mobile-nav {
-        display: none;
-    }
-
-    .desktop-nav {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 10;
-        background-color: rgba(232, 217, 250, 0.9);
-        padding: 10px 0;
-    }
-
-    .desktop-nav ul {
-        display: flex;
-        justify-content: space-around;
-        list-style-type: none;
-    }
-
-    .desktop-nav a {
-        text-decoration: none;
-        color: #000;
-        font-family: 'Title', sans-serif;
-        text-transform: uppercase;
-        font-size: var(--nav-desktop);
-        line-height: 2;
-        letter-spacing: 0.5px;
-    }
-
-    .desktop-nav a:hover {
-        color: #FF5733;
-        border-bottom: 2px solid #FF5733;
-    }
-
-    header {
-        height: calc(100vh - 60px);
-        margin-top: 60px;
-    }
-
-    .circle1 { width: 150px; height: 150px; }
-    .circle2 { width: 400px; height: 400px; }
-    .circle3 { width: 600px; height: 600px; }
-    .circle4 { width: 800px; height: 800px; }
-    .circle5 { width: 1000px; height: 1000px; }
-    .circle6 { width: 1200px; height: 1200px; }
-    .circle7 { width: 1400px; height: 1400px; }
-
-    .overlay-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #overlayContentContainer {
-        flex: 1;
-        display: flex;
-    }
-
-    #sidebar {
-        width: 25%;
-        background-color: rgba(255, 255, 255, 0.9);
-        position: sticky;
-        top: 20px;
-        align-self: flex-start;
-    }
-
-    #content {
-        width: 75%;
-        padding-left: 5%;
-        overflow-y: auto;
-    }
-}
-</style>
 </head>
 <body>
-<div class="circle-container">
-    <img class="circle circle1" src="assets/image/logo.png" alt="VAWG Logo">
-    <div class="circle circle2"></div>
-    <div class="circle circle3"></div>
-    <div class="circle circle4"></div>
-    <div class="circle circle5"></div>
-    <div class="circle circle6"></div>
-    <div class="circle circle7"></div>
-</div>
-<div class="container">
-    <header>
-        <!-- Header content if any -->
-    </header>
-    <nav class="mobile-nav">
-        <ul>
-            <li><a href="#" data-overlay="about.html">about</a></li>
-            <li><a href="#" data-overlay="herstory.html">herstory</a></li>
-            <li><a href="#" data-overlay="charter.html">the vawg sector anti-racism charter</a></li>
-            <li><a href="#" data-overlay="resources.html">learning & resources</a></li>
-        </ul>
-    </nav>
-    <nav class="desktop-nav">
-        <ul>
-            <li><a href="#" data-overlay="about.html">about</a></li>
-            <li><a href="#" data-overlay="herstory.html">herstory</a></li>
-            <li><a href="#" data-overlay="charter.html">the vawg sector anti-racism charter</a></li>
-            <li><a href="#" data-overlay="resources.html">learning & resources</a></li>
-        </ul>
-    </nav>
-</div>
+<!--Desktop Navigation-->
+<nav>
+<ul>
+<li><a href="about.html" data-overlay="about.html">about</a></li>
+<li><a href="herstory.html" data-overlay="herstory.html">herstory</a></li>
+<li><a href="charter.html" data-overlay="charter.html">the vawg sector anti-racism charter</a></li>
+<li><a href="resources.html" data-overlay="resources.html">learning & resources</a></li>
+</ul>
+</nav>
 
+<!--Main Content-->
+<div class="main-content">
+    
+<!--Overlay-->
 <div id="overlay" class="overlay">
-    <div class="overlay-content">
-        <div class="overlay-header">
-            <button id="closeOverlay">&times;</button>
-        </div>
-        <div id="overlayContentContainer"></div>
-    </div>
+<div class="overlay-content">
+<button id="closeOverlay">&times;</button>
+<div id="overlayContentContainer"></div>
+</div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('overlay');
-    const closeButton = document.getElementById('closeOverlay');
-    const overlayContentContainer = document.getElementById('overlayContentContainer');
-    const navLinks = document.querySelectorAll('.mobile-nav a, .desktop-nav a');
+<!--Animation-->
+<div class="circle-container">
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+<div class="circle circle4"></div>
+<div class="circle circle5"></div>
+<div class="circle circle6"></div>
+<div class="circle circle7"></div>
+</div>
 
-    const openOverlay = (url) => {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(html => {
-                overlayContentContainer.innerHTML = html;
-                overlay.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                initializeOverlayNavigation();
-            })
-            .catch(error => {
-                console.error('Error loading overlay content:', error);
-                overlayContentContainer.innerHTML = '<p>Error loading content. Please try again later.</p>';
-                overlay.style.display = 'block';
-            });
-    };
-
-    const closeOverlay = () => {
-        overlay.style.display = 'none';
-        overlayContentContainer.innerHTML = '';
-        document.body.style.overflow = '';
-    };
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const overlayUrl = link.getAttribute('data-overlay');
-            if (overlayUrl) {
-                openOverlay(overlayUrl);
-            }
-        });
-    });
-
-    closeButton.addEventListener('click', closeOverlay);
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeOverlay();
-    });
-
-    function initializeOverlayNavigation() {
-        const links = overlayContentContainer.querySelectorAll('#sidebar a');
-        const pages = overlayContentContainer.querySelectorAll('.page');
-        const menuItems = overlayContentContainer.querySelectorAll('.menu-item');
-        const contentArea = overlayContentContainer.querySelector('#content');
-
-        links.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('data-page');
-
-                pages.forEach(page => page.classList.remove('active'));
-                menuItems.forEach(item => item.classList.remove('active'));
-
-                overlayContentContainer.querySelector(`#${pageId}`).classList.add('active');
-                this.parentElement.classList.add('active');
-
-                contentArea.scrollTop = 0;
-            });
-        });
-    }
-});
-</script>
+<div class="logo-container">
+<img src="assets/image/logo.png" alt="Ending Racism in VAWG Logo" class="logo">
+</div>
+</div>
 </body>
 </html>
