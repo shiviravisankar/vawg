@@ -12,8 +12,8 @@
     @font-face 
     {
         font-family: 'Title';
-        src: url('../assets/font/VTCBayard-Rustin.woff2') format('woff2'),
-             url('../assets/font/VTCBayard-Rustin.woff') format('woff');
+        src: url('assets/font/VTCBayard-Rustin.woff2') format('woff2'),
+             url('assets/font/VTCBayard-Rustin.woff') format('woff');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -21,9 +21,8 @@
 
     :root
     {
-        /* Mobile sizes as default */
         --nav: 16px;
-        --body-copy: 14px;
+        --body-copy: 16px;
         --heading: 32px;
     }
 
@@ -127,14 +126,14 @@
         margin-bottom: 4vh;
     }
     
-    /* Preserve original overlay styles from original CSS */
     .overlay {
         display: none;
         position: fixed;
-        top: 60px; /* Adjust this value to match your nav height */
+        top: 60px;
         left: 0;
         width: 100%;
-        height: calc(100% - 60px); /* Subtract nav height from full height */
+        height: 100vh;
+        bottom: 0;
         background-color: rgba(0, 0, 0, 0.2);
         z-index: 2000;
         overflow-y: auto;
@@ -143,7 +142,7 @@
     .overlay-content 
     {
         width: 95%;
-        margin: 2% auto;
+        margin: 10% auto;
         background-color: #fff;
         border-radius: 15px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
