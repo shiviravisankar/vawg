@@ -4,10 +4,240 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/reset.css" rel="stylesheet">
-<link href="assets/style.css" rel="stylesheet">
-<link href="assets/substyle.css" rel="stylesheet">
 <script defer src="assets/script.js"></script>
 <title>About</title>
+<style>
+    /*fonts*/
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+    @font-face 
+    {
+        font-family: 'Title';
+        src: url('../assets/font/VTCBayard-Rustin.woff2') format('woff2'),
+             url('../assets/font/VTCBayard-Rustin.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    :root
+    {
+        /* Mobile sizes as default */
+        --nav: 16px;
+        --body-copy: 14px;
+        --heading: 32px;
+    }
+
+    body, html 
+    {
+        font-family: 'Inconsolata', monospace;
+        background-color: #FFFFFF;
+        font-size: var(--body-copy);
+        line-height: 1.4;
+        font-weight: 400;
+        overflow-x: hidden;
+    }
+
+    .all
+    {
+        width: 95%;
+        margin: auto;
+        margin-top: 4vh;
+    }
+
+    .header
+    {
+        text-transform: uppercase;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 2vh;
+    }
+
+    h1
+    {
+        font-family: 'Title';
+        text-transform: uppercase;
+        font-size: var(--heading);
+        line-height: 1.1;
+        color: #7400ff;
+        text-align: center;
+        padding-top: 3vh;
+        padding-bottom: 3vh;
+    }
+
+    .content
+    {
+        display: flex;
+        flex-direction: column;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+    }
+
+    .photo
+    {
+        width: 100%;
+        margin-bottom: 4vh;
+    }
+
+    .photo img
+    {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .vline
+    {
+        border-bottom: 0.5px solid black;
+    }
+
+    .hline
+    {
+        display: none;
+    }
+
+    .text
+    {
+        width: 100%;
+    }
+
+    .text p
+    {
+        margin-bottom: 20px;
+    }
+
+    .disclaimer
+    {
+        padding-top: 4vh;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 4vh;
+    }
+
+    .footer
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 2vh;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 4vh;
+    }
+    
+    /* Preserve original overlay styles from original CSS */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 60px; /* Adjust this value to match your nav height */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 60px); /* Subtract nav height from full height */
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 2000;
+        overflow-y: auto;
+    }
+
+    .overlay-content 
+    {
+        width: 95%;
+        margin: 2% auto;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        min-height: 96vh;
+        box-sizing: border-box;
+    }
+
+    #closeOverlay 
+    {
+        position: sticky;
+        top: 10px;
+        right: 10px;
+        float: right;
+        font-size: 36px;
+        width: 30px;
+        height: 30px;
+        padding-top: 10px;
+        padding-right: 0px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+        color: black;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2001;
+    }
+
+    #overlayContentContainer 
+    {
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+        :root {
+            --nav: 20px;
+            --body-copy: 16px;
+            --heading: 64px;
+        }
+
+        .all {
+            width: 80%;
+            margin-top: 7vh;
+        }
+
+        .header {
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 2vh;
+        }
+
+        h1 {
+            padding-top: 5vh;
+            padding-bottom: 5vh;
+        }
+
+        .content {
+            flex-direction: row;
+            margin-top: 7vh;
+            margin-bottom: 7vh;
+        }
+
+        .photo {
+            width: 50%;
+            margin-bottom: 0;
+        }
+
+        .hline {
+            display: block;
+            border-left: 0.5px solid transparent;
+            margin-left: 2%;
+            margin-right: 2%;
+        }
+
+        .text {
+            width: 50%;
+        }
+
+        .disclaimer {
+            padding-top: 7vh;
+            width: 60%;
+            margin-bottom: 7vh;
+        }
+
+        .footer {
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 2vh;
+            margin-bottom: 7vh;
+        }
+    }
+</style>
 </head>
 <body>
 <div class="all">
@@ -24,7 +254,7 @@ We are Black, minoritised and white women working in the violence against women 
 
 <div class="content">
 <div class="photo">
-<img src="assets/image/about.png" alt="">
+<img src="assets/image/about.png" alt="Group photo of women from the anti-racism working group">
 </div>
 
 <div class="hline"></div>
@@ -35,13 +265,14 @@ We are Black, minoritised and white women working in the violence against women 
 <p>Imkaan, the UK-based, Black feminist organisation, were the host for the working group between 2021-23. Membership of the group has been on a voluntary basis, from a range of specialist VAWG organisations, and as such not all founder members currently remain part of the group.</p>
 
 <p>Members that have supported the development of the Charter and AWRG,
-
+</p>
+<ul style="list-style-type: none; padding-left: 0;">
 <li>Andrea Simon, End Violence Against Women Coalition</li>
 <li>Estelle Du Boulay, Rights of Women</li>
 <li>Gabriela Quevedo, LAWA</li>
-<li>Gisela Valle, Latin American Women&#39;s Rights Service</li>
+<li>Gisela Valle, Latin American Women's Rights Service</li>
 <li>Kanika Argawal, Imkaan</li>
-<li>Lucy Hadley and Sophie Francis-Cansfield, Women&#39;s Aid Federation England</li>
+<li>Lucy Hadley and Sophie Francis-Cansfield, Women's Aid Federation England</li>
 <li>Huda Jawad</li>
 <li>Cyrene Siriwardhana</li>
 <li>Rani Selvarajah</li> 
@@ -51,7 +282,7 @@ We are Black, minoritised and white women working in the violence against women 
 <li>Priscilla Dudhia</li> 
 <li>Rosie Lewis</li> 
 <li>Shaista Aziz</li> 
-</p>
+</ul>
 </div>
 </div>
 
