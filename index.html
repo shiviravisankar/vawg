@@ -18,7 +18,7 @@
     }
     
     :root {
-        --nav-mobile: 16px;
+        --nav-mobile: 18px;
         --nav-desktop: 20px;
         --body-copy: 16px;
     }
@@ -85,36 +85,36 @@
     
     .circle3 { 
         background-color: #B87DFF;
-        width: 150vmin; 
-        height: 150vmin; 
+        width: 160vmin; 
+        height: 160vmin; 
         animation: pulse 4s infinite 1s;
     }
     
     .circle4 { 
         background-color: #FF795D;
-        width: 125vmin; 
-        height: 125vmin; 
+        width: 135vmin; 
+        height: 135vmin; 
         animation: pulse 4s infinite 1.5s;
     }
     
     .circle5 { 
         background-color: #7400FF;
-        width: 100vmin; 
-        height: 100vmin; 
+        width: 110vmin; 
+        height: 110vmin; 
         animation: pulse 4s infinite 2s;
     }
     
     .circle6 { 
         background-color: #4B00A5;
-        width: 75vmin; 
-        height: 75vmin; 
+        width: 85vmin; 
+        height: 85vmin; 
         animation: pulse 4s infinite 2.5s;
     }
     
     .circle7 { 
         background-color: #E3CCFF;
-        width: 50vmin; 
-        height: 50vmin; 
+        width: 60vmin; 
+        height: 60vmin; 
         animation: pulse 4s infinite 3s;
     }
     
@@ -137,16 +137,19 @@
         height: auto;
     }
     
+    /* Updated mobile navigation - fixed at top */
     .mobile-nav {
-        height: 40vh;
-        overflow-y: auto;
-        position: relative;
-        z-index: 2;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: 10px 0;
+        background-color: rgba(232, 217, 250, 0.9);
     }
     
     .mobile-nav ul {
         list-style-type: none;
-        height: 100%;
         display: flex;
         flex-direction: column;
         margin: 0;
@@ -154,28 +157,25 @@
     }
     
     .mobile-nav li {
-        flex-grow: 1;
-        display: flex;
+        margin: 5px 0;
+        text-align: center;
     }
     
     .mobile-nav a {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        width: 100%;
-        padding: 10px 30px;
-        color: #000000;
+        display: block;
+        padding: 8px 10px;
+        color: #000;
         text-decoration: none;
-        font-weight: bold;
         font-family: 'Title', sans-serif;
         text-transform: uppercase;
         font-size: var(--nav-mobile);
+        line-height: 1.5;
+        letter-spacing: 0.5px;
     }
     
-    .mobile-nav li:nth-child(1) a { background-color: #E3CCFF; }
-    .mobile-nav li:nth-child(2) a { background-color: #CBA0FF; }
-    .mobile-nav li:nth-child(3) a { background-color: #FF795D; }
-    .mobile-nav li:nth-child(4) a { background-color: #B87DFF; }
+    .mobile-nav a:hover {
+        color: #FF5733;
+    }
     
     .desktop-nav {
         display: none;
@@ -233,18 +233,18 @@
         .container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
         }
     
         header {
-            flex: 0 0 60vh;
+            height: 60vh;
             z-index: 1;
+            margin-top: 140px; /* Add space for the fixed navigation */
         }
     
         .mobile-nav {
-            flex: 0 0 40vh;
-            z-index: 2;
+            height: auto;
+            z-index: 10;
         }
     
         .circle-container {
@@ -320,121 +320,121 @@
             overflow-y: auto;
         }
     }
-    </style>
-    </head>
-    <body>
-    <div class="container">
-        <div class="circle-container">
-            <div class="circle circle1"></div>
-            <div class="circle circle2"></div>
-            <div class="circle circle3"></div>
-            <div class="circle circle4"></div>
-            <div class="circle circle5"></div>
-            <div class="circle circle6"></div>
-            <div class="circle circle7"></div>
-        </div>
-        <header>
-            <div class="logo-container">
-                <img src="assets/image/logo.png" alt="VAWG Logo" class="logo">
-            </div>
-        </header>
-        <nav class="mobile-nav">
-            <ul>
-                <li><a href="#" data-overlay="about.html">about</a></li>
-                <li><a href="#" data-overlay="herstory.html">herstory</a></li>
-                <li><a href="#" data-overlay="charter.html">the vawg sector anti-racism charter</a></li>
-                <li><a href="#" data-overlay="resources.html">learning & resources</a></li>
-            </ul>
-        </nav>
-        <nav class="desktop-nav">
-            <ul>
-                <li><a href="#" data-overlay="about.html">about</a></li>
-                <li><a href="#" data-overlay="herstory.html">herstory</a></li>
-                <li><a href="#" data-overlay="charter.html">the vawg sector anti-racism charter</a></li>
-                <li><a href="#" data-overlay="resources.html">learning & resources</a></li>
-            </ul>
-        </nav>
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="circle-container">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="circle circle4"></div>
+        <div class="circle circle5"></div>
+        <div class="circle circle6"></div>
+        <div class="circle circle7"></div>
     </div>
-    
-    <div id="overlay" class="overlay">
-        <div class="overlay-content">
-            <div class="overlay-header">
-                <button id="closeOverlay">&times;</button>
-            </div>
-            <div id="overlayContentContainer"></div>
+    <nav class="mobile-nav">
+        <ul>
+            <li><a href="#" data-overlay="about.html">about</a></li>
+            <li><a href="#" data-overlay="herstory.html">herstory</a></li>
+            <li><a href="#" data-overlay="charter.html">the vawg sector anti-racism charter</a></li>
+            <li><a href="#" data-overlay="resources.html">learning & resources</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="logo-container">
+            <img src="assets/image/logo.png" alt="VAWG Logo" class="logo">
         </div>
+    </header>
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="#" data-overlay="about.html">about</a></li>
+            <li><a href="#" data-overlay="herstory.html">herstory</a></li>
+            <li><a href="#" data-overlay="charter.html">the vawg sector anti-racism charter</a></li>
+            <li><a href="#" data-overlay="resources.html">learning & resources</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div id="overlay" class="overlay">
+    <div class="overlay-content">
+        <div class="overlay-header">
+            <button id="closeOverlay">&times;</button>
+        </div>
+        <div id="overlayContentContainer"></div>
     </div>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-const overlay = document.getElementById('overlay');
-const closeButton = document.getElementById('closeOverlay');
-const overlayContentContainer = document.getElementById('overlayContentContainer');
-const navLinks = document.querySelectorAll('.mobile-nav a, .desktop-nav a');
+    const overlay = document.getElementById('overlay');
+    const closeButton = document.getElementById('closeOverlay');
+    const overlayContentContainer = document.getElementById('overlayContentContainer');
+    const navLinks = document.querySelectorAll('.mobile-nav a, .desktop-nav a');
 
-const openOverlay = (url) => {
-fetch(url)
-.then(response => {
-if (!response.ok) {
-    throw new Error('Network response was not ok');
-}
-return response.text();
-})
-.then(html => {
-overlayContentContainer.innerHTML = html;
-overlay.style.display = 'block';
-document.body.style.overflow = 'hidden';
-initializeOverlayNavigation();
-})
-.catch(error => {
-console.error('Error loading overlay content:', error);
-overlayContentContainer.innerHTML = '<p>Error loading content. Please try again later.</p>';
-overlay.style.display = 'block';
-});
-};
+    const openOverlay = (url) => {
+        fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(html => {
+            overlayContentContainer.innerHTML = html;
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            initializeOverlayNavigation();
+        })
+        .catch(error => {
+            console.error('Error loading overlay content:', error);
+            overlayContentContainer.innerHTML = '<p>Error loading content. Please try again later.</p>';
+            overlay.style.display = 'block';
+        });
+    };
 
-const closeOverlay = () => {
-overlay.style.display = 'none';
-overlayContentContainer.innerHTML = '';
-document.body.style.overflow = '';
-};
+    const closeOverlay = () => {
+        overlay.style.display = 'none';
+        overlayContentContainer.innerHTML = '';
+        document.body.style.overflow = '';
+    };
 
-navLinks.forEach(link => {
-link.addEventListener('click', (e) => {
-e.preventDefault();
-const overlayUrl = link.getAttribute('data-overlay');
-if (overlayUrl) {
-openOverlay(overlayUrl);
-}
-});
-});
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const overlayUrl = link.getAttribute('data-overlay');
+            if (overlayUrl) {
+                openOverlay(overlayUrl);
+            }
+        });
+    });
 
-closeButton.addEventListener('click', closeOverlay);
-overlay.addEventListener('click', (e) => {
-if (e.target === overlay) closeOverlay();
-});
+    closeButton.addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeOverlay();
+    });
 
-function initializeOverlayNavigation() {
-const links = overlayContentContainer.querySelectorAll('#sidebar a');
-const pages = overlayContentContainer.querySelectorAll('.page');
-const menuItems = overlayContentContainer.querySelectorAll('.menu-item');
-const contentArea = overlayContentContainer.querySelector('#content');
+    function initializeOverlayNavigation() {
+        const links = overlayContentContainer.querySelectorAll('#sidebar a');
+        const pages = overlayContentContainer.querySelectorAll('.page');
+        const menuItems = overlayContentContainer.querySelectorAll('.menu-item');
+        const contentArea = overlayContentContainer.querySelector('#content');
 
-links.forEach(link => {
-link.addEventListener('click', function(e) {
-e.preventDefault();
-const pageId = this.getAttribute('data-page');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
 
-pages.forEach(page => page.classList.remove('active'));
-menuItems.forEach(item => item.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active'));
+                menuItems.forEach(item => item.classList.remove('active'));
 
-overlayContentContainer.querySelector(`#${pageId}`).classList.add('active');
-this.parentElement.classList.add('active');
+                overlayContentContainer.querySelector(`#${pageId}`).classList.add('active');
+                this.parentElement.classList.add('active');
 
-contentArea.scrollTop = 0;
-});
-});
-}
+                contentArea.scrollTop = 0;
+            });
+        });
+    }
 });
 </script>
 </body>
