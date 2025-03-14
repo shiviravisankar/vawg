@@ -4,11 +4,282 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/reset.css" rel="stylesheet">
-<link href="assets/style.css" rel="stylesheet">
-<link href="assets/substyle.css" rel="stylesheet">
 <script defer src="assets/script.js"></script>
 <title>Charter</title>
 <style>
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@font-face 
+{
+font-family: 'Title';
+src: url('assets/font/VTCBayard-Rustin.woff2') format('woff2'),
+url('assets/font/VTCBayard-Rustin.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+font-display: swap;
+}
+
+:root
+{
+--nav: 20px;
+--body-copy: 16px;
+--heading: 32px;
+}
+
+body, html 
+{
+font-family: 'Inconsolata', monospace;
+background-color: #FFFFFF;
+font-size: var(--body-copy);
+line-height: 1.4;
+font-weight: 400;
+overflow-x: hidden;
+}
+
+.all
+{
+width: 95%;
+margin: auto;
+margin-top: 4vh;
+}
+
+.header
+{
+text-transform: uppercase;
+font-weight: 600;
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-bottom: 2vh;
+}
+
+h1 {
+font-weight: 600;
+margin-bottom: 15px;
+}
+
+.cover img 
+{
+width: 100%;
+height: auto;
+margin-bottom: 3vh;
+margin-top: 5%;
+}
+
+.text2 
+{
+width: 100%;
+margin: auto;
+margin-bottom: 40px;
+}
+
+.text2 p
+{
+margin-bottom: 10px;
+}
+
+.content-wrapper {
+display: flex;
+flex-direction: column;
+margin-top: 4vh;
+margin-bottom: 4vh;
+}
+
+#sidebar {
+width: 100%;
+font-family: 'Title', sans-serif;
+font-size: var(--nav);
+margin-bottom: 4vh;
+overflow-x: auto;
+white-space: nowrap;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none; /* Firefox */
+}
+
+#sidebar::-webkit-scrollbar {
+display: none; /* Chrome, Safari, Opera */
+}
+
+.sidebar-content {
+display: inline-flex;
+padding: 10px 0;
+}
+
+.menu-item {
+margin-right: 20px;
+padding: 5px 0;
+}
+
+.menu-item.active a {
+color: #FF5733;
+border-bottom: 2px solid #FF5733;
+}
+
+.menu-item a {
+text-decoration: none;
+color: inherit;
+text-transform: uppercase;
+padding: 5px 0;
+}
+
+#content {
+width: 100%;
+}
+
+.overlay 
+{
+display: none;
+position: fixed;
+top: 60px;
+left: 0;
+width: 100%;
+height: 100vh;
+bottom: 0;
+background-color: rgba(0, 0, 0, 0.2);
+z-index: 2000;
+overflow-y: auto;
+}
+
+.overlay-content 
+{
+width: 95%;
+margin: 7% auto;
+margin-bottom: 30%;
+background-color: #fff;
+border-radius: 15px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+min-height: 96vh;
+box-sizing: border-box;
+}
+
+#closeOverlay 
+{
+position: sticky;
+top: 10px;
+right: 10px;
+float: right;
+font-size: 36px;
+width: 30px;
+height: 30px;
+padding-top: 10px;
+padding-right: 0px;
+background-color: #FFFFFF;
+border-radius: 50%;
+color: black;
+border: none;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 2001;
+}
+
+#overlayContentContainer 
+{
+flex: 1;
+overflow-y: auto;
+}
+
+.page {
+display: none;
+}
+
+.page.active {
+display: block;
+}
+
+#content li {
+margin-top: 15px;
+list-style-type: disc;
+margin-left: 20px;
+}
+
+.buttons {
+margin-top: 5vh;
+margin-bottom: 5vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 20px;
+letter-spacing: 1px;
+}
+
+.button-primary, .button-secondary {
+font-family: 'Title';
+font-size: var(--nav);
+text-transform: uppercase;
+display: inline-block;
+padding: 15px 20px;
+text-decoration: none;
+text-align: center;
+border-radius: 50px;
+transition: background-color 0.3s;
+width: 100%;
+max-width: 350px;
+white-space: nowrap;
+}
+
+.button-primary {
+background-color: #030303;
+color: white;
+}
+
+.button-primary:hover {
+background-color: white;
+color: #030303;
+border: 1px solid black;
+}
+
+.button-secondary {
+background-color: white;
+color: #030303;
+border: 1px solid #030303;
+}
+
+.button-secondary:hover {
+border: 1px solid #d5d5d5;
+}
+
+.vline {
+border-bottom: 0.5px solid black;
+margin-bottom: 3vh;
+}
+
+.hline {
+display: none;
+}
+
+.footer {
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin-top: 2vh;
+text-transform: uppercase;
+font-weight: 600;
+margin-bottom: 4vh;
+}
+
+@media screen and (min-width: 768px) {
+:root 
+{
+--nav: 20px;
+--body-copy: 16px;
+--heading: 64px;
+}
+
+.all 
+{
+width: 80%;
+margin-top: 7vh;
+}
+
+.header 
+{
+flex-direction: row;
+justify-content: space-between;
+margin-bottom: 2vh;
+}
+
 .cover img 
 {
 width: 100%;
@@ -23,114 +294,66 @@ margin: auto;
 margin-bottom: 40px;
 }
 
-.text2 p
-{
-margin-bottom: 10px;
-}
-
-.buttons
-{
-margin-bottom: 5vh;
-display: flex;
-justify-content: space-evenly;
-letter-spacing: 1px;
-}
-
-.button-primary, .button-secondary 
-{
-font-family: 'Title';
-font-size: var(--nav);
-text-transform: uppercase;
-display: inline-block;
-padding: 20px 40px;
-text-decoration: none;
-text-align: center;
-border-radius: 50px;
-transition: background-color 0.3s;
-}
-
-.button-primary 
-{
-background-color: #030303;
-color: white;
-}
-
-.button-primary:hover 
-{
-background-color: white;
-color: #030303;
-border: 1px solid black;
-}
-
-.button-secondary 
-{
-background-color: white;
-color: #030303;
-border: 1px solid #030303;
-}
-
-.button-secondary:hover 
-{
-border: 1px solid #d5d5d5;
-}
-
-.content-wrapper 
-{
-display: flex;
-position: relative;
-gap: 50px;
-margin-top: 5vh;
+.content-wrapper {
+flex-direction: row;
+margin-top: 7vh;
 margin-bottom: 7vh;
 }
 
-.vline
-{
-margin-bottom: 2%;
-}
-
-#sidebar 
-{
+#sidebar {
 width: 30%;
-background-color: #ffffff;
-box-sizing: border-box;
 position: sticky;
 top: 20px;
 align-self: flex-start;
+margin-bottom: 0;
+overflow-x: visible;
+white-space: normal;
 }
 
-.menu-item 
-{
-margin-bottom: 15px;
-}
-
-.menu-item.active a 
-{
-color: #FF5733;
-border-bottom: 2px solid #FF5733;
-}
-
-#content 
-{
-width: 60%;
-line-height: 1.5;
-}
-
-.page 
-{
-display: none;
-}
-
-.page.active 
-{
+.sidebar-content {
 display: block;
 }
 
-#content li 
-{
-margin-top: 15px;
-list-style-type: disc;
+.menu-item {
+margin-right: 0;
+margin-bottom: 15px;
 }
 
+#content {
+width: 60%;
+padding-left: 5%;
+}
+
+.hline {
+display: block;
+border-left: 0.5px solid transparent;
+margin-left: 2%;
+margin-right: 2%;
+}
+
+.buttons {
+flex-direction: row;
+justify-content: space-evenly;
+}
+
+.button-primary, .button-secondary {
+padding: 20px 40px;
+width: auto;
+}
+
+.overlay-content
+{
+margin: 2% auto;
+margin-bottom: 10%;
+}
+
+.footer {
+flex-direction: row;
+justify-content: space-between;
+margin-top: 2vh;
+margin-bottom: 7vh;
+}
+}
 </style>
 </head>
 <body>
@@ -139,11 +362,14 @@ list-style-type: disc;
 <p>Charter</p>
 <p>ending racism in the violence against women & girls movement</p>
 </div>
+
 <div class="vline"></div>
+
 <div class="cover">
 <img src="assets/image/charter.png" alt="Charter Cover">
 </div>
-<div id="text2" class="text2">
+
+<div class="text2">
 <p>The Anti-Racism Charter sets out a vision for anti-racist approach in the ending violence against women and girls (VAWG) sector.</p>
 <p>It is needed because structural racism impacts how Black and minoritised women experience violence and abuse, and their access to safety, support and justice.</p>
 <h1>Racism and inequality is also replicated within our sector too - and this stops us creating a world where all women and girls live free from violence and abuse</h1>
@@ -158,17 +384,37 @@ list-style-type: disc;
 </div>
 
 <div class="vline"></div>
-<p>It sets out a framework of commitments and actions for organisations in<br> the VAWG sector across seven priority areas,</p>
+<p>It sets out a framework of commitments and actions for organisations in the VAWG sector across seven priority areas,</p>
+
 <div class="content-wrapper">
 <nav id="sidebar">
-<div class="menu-item active"><a href="#" data-page="page1">Funding</a></div>
-<div class="menu-item"><a href="#" data-page="page2">Partnerships and collaboration</a></div>
-<div class="menu-item"><a href="#" data-page="page3">Appropriation</a></div>
-<div class="menu-item"><a href="#" data-page="page4">Representation and engagement</a></div>
-<div class="menu-item"><a href="#" data-page="page5">Leadership and governance</a></div>
-<div class="menu-item"><a href="#" data-page="page6">Policy and influencing</a></div>
-<div class="menu-item"><a href="#" data-page="page7">Communications</a></div>
+<div class="sidebar-content">
+<div class="menu-item active">
+<a href="#" data-page="page1">Funding</a>
+</div>
+<div class="menu-item">
+<a href="#" data-page="page2">Partnerships and collaboration</a>
+</div>
+<div class="menu-item">
+<a href="#" data-page="page3">Appropriation</a>
+</div>
+<div class="menu-item">
+<a href="#" data-page="page4">Representation and engagement</a>
+</div>
+<div class="menu-item">
+<a href="#" data-page="page5">Leadership and governance</a>
+</div>
+<div class="menu-item">
+<a href="#" data-page="page6">Policy and influencing</a>
+</div>
+<div class="menu-item">
+<a href="#" data-page="page7">Communications</a>
+</div>
+</div>
 </nav>
+
+<div class="hline"></div>
+
 <main id="content">
 <div id="page1" class="page active">
 <p>Specialist services led &#39;by and for&#39; Black and minoritised women are a vital part of our sector and are uniquely able to reach Black and minoritised women, tackle the barriers they face to support, and deliver expert support with an understanding of the dynamics of gender, racism and discrimination that shape their experiences. The Charter calls on the VAWG sector to commit to support and stand in solidarity with &#39;by and for&#39; Black and minoritised women&#39;s services to end the systemic funding inequality they experience by,</p>
@@ -200,12 +446,14 @@ At both national and local level, structural inequalities mean that &#39;by and 
 </div>
 
 <div id="page5" class="page">
-<p>As in the wider charity sector, Black and minoritised women are under-represented in leadership positions in the sector. Black and minoritised women within white-led organisations have documented institutional racism within organisations, barriers to progression, a lack of safety, trust and respect, and failures to address racism within internal complaints and grievance procedures. Black and minoritised women within white-led organisations often carry the burden of anti-racism work within  their organisations without adjustment for the additional workload and recognition of the emotional toll. The Charter sets out a vision for leadership and governance in VAWG sector which challenges white supremacy, including through: senior leadership that is truly reflective of the survivors we exist to support, with Black and minoritised women supported into leadership roles; board level commitment and ownership of race equality; an ongoing process of learning and reflection of power, privilege and white supremacy within leadership teams; anti-racist recruitment and progression practices; robust procedures for reporting and redressing racism; and systemic approaches to ensure diversity, equity and racial inclusion at all levels.
+<p>As in the wider charity sector, Black and minoritised women are under-represented in leadership positions in the sector. Black and minoritised women within white-led organisations have documented institutional racism within organisations, barriers to progression, a lack of safety, trust and respect, and failures to address racism within internal complaints and grievance procedures. Black and minoritised women within white-led organisations often carry the burden of anti-racism work within their organizations without adjustment for the additional workload and recognition of the emotional toll. The Charter sets out a vision for leadership and governance in VAWG sector which challenges white supremacy, including through: senior leadership that is truly reflective of the survivors we exist to support, with Black and minoritised women supported into leadership roles; board level commitment and ownership of race equality; an ongoing process of learning and reflection of power, privilege and white supremacy within leadership teams; anti-racist recruitment and progression practices; robust procedures for reporting and redressing racism; and systemic approaches to ensure diversity, equity and racial inclusion at all levels.
 </p>
 </div>
+
 <div id="page6" class="page">
 <p>White feminist analysis remains predominant within our sector and results in policy positions, recommendations and partnerships which fail to tackle the multiple forms of oppression that Black and minoritised women experience. This has manifested in failure to recognise the racism and discrimination that Black and minoritised experience from the police, criminal justice system and other public bodies. The Charter calls for the VAWG sector to centre an intersectional approach and analysis within our policy, campaigning and public affairs work to challenge structural inequalities and racism, including through: going beyond looking at &#39;gender&#39; alone to centre multiple forms of oppression; always considering the specific needs of Black and minoritised women and the differential impacts of &#39;mainstream&#39; approaches; and taking a &#39;do no harm&#39; approach to policy development, aiming to end - and not compound - structural inequalities.</p>
 </div>
+
 <div id="page7" class="page">
 <p>External communications within the VAWG sector do not effectively speak to all survivors, and are often not even accessible to all either. The current hostile media environment perpetuates narratives and stereotypes which subordinate Black and minoritised women, and this is not effectively challenged by VAWG sector organisations. The Charter calls for a VAWG sector which communicates in a truly inclusive way, including through: delivering consistently accessible communications and resources for survivors, tackling the barriers that women experiencing multiple forms of oppression face in accessing support; disrupting power imbalances within the sector&#39;s media and publicity work by sharing space, power and resources with &#39;by andn for&#39; Black and minoritised women&#39;s organisations; supporting Black and minoritised women with lived experience to speak out; and challenging media outlets on hostile reporting.
 </p>
